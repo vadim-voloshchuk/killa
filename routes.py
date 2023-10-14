@@ -11,8 +11,17 @@ def hello():
 
 @app.route("/processing", methods=['POST'])
 def processing():
-    coords_lst = request.json['coords']
-    return json.dumps(fictitous_function(coords_lst))
+    try:
+        locality = request.json['locatity']
+        res = fictitous_function(locality=locality)
+    except:
+        try:
+            coords_lst = request.json['coords']
+            res = fictitous_function(coords=coords_lst)
+        except:
+            return "Не были направлены данные"
+    
+    return json.dumps(res)
 
 @app.route("/upload file", methods=['POST'])
 def upload_file():

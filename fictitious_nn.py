@@ -1,6 +1,6 @@
 
 
-def fictitous_function(coords):
+def fictitous_function(coords=None, locality=None):
     return {"positive objects":20,
     "negative objects":10,
     "criterion 1":60,
