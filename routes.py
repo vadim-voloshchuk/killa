@@ -2,7 +2,7 @@ from __main__ import app, db
 from flask import request
 from model import Files
 from fictitious_nn import fictitous_function
-from ml_module.model_loader import get_estimate
+from model_loader import get_estimate
 import json
 
 
