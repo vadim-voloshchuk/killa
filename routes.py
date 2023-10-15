@@ -2,6 +2,7 @@ from __main__ import app, db
 from flask import request
 from model import Files
 from fictitious_nn import fictitous_function
+from ml_module.model_loader import get_estimate
 import json
 
 
@@ -13,11 +14,11 @@ def hello():
 def processing():
     try:
         locality = request.json['locatity']
-        res = fictitous_function(locality=locality)
+        res = get_estimate(locality=locality)
     except:
         try:
             coords_lst = request.json['coords']
-            res = fictitous_function(coords=coords_lst)
+            res = get_estimate(coords=coords_lst)
         except:
             return "Не были направлены данные"
     
